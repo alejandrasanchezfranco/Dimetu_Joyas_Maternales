@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<style>
+        .hero-section {
+            text-align: center;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            padding: 80px 20px;
+            background-color: #fcf8f8; /* Un fondo rosa blanquecino súper sutil */
+            color: #4a4a4a;
+        }
+        .brand-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .brand-title span.pink {
+            color: #fcd7d7; /* El tono rosa suave de tu logo */
+            font-weight: bold;
+        }
+        .brand-title span.blue {
+            color: #9bbcd1; /* El azul/gris de la gota */
+        }
+        .brand-subtitle {
+            font-size: 1.2rem;
+            color: #7a8a99;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+        }
+        .intro-text {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+        .badge-gota {
+            font-size: 2.5rem;
+            color: #9bbcd1;
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <div class="hero-section">
+        <div class="badge-gota">💧</div>
+        <h1 class="brand-title">Di<span class="pink">ME</span><span class="blue">TU</span></h1>
+        <div class="brand-subtitle">Joyas Maternales</div>
+        
+        <p class="intro-text">
+            Transformamos tus recuerdos más puros en piezas eternas. 
+            Especialistas en joyas biológicas únicas y artesanales hechas con todo el amor que tu historia merece.
+        </p>
+    </div>
+{% endblock %}
