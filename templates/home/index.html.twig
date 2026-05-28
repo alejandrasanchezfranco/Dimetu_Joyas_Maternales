@@ -1,52 +1,109 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
-
 {% block body %}
 <style>
-        .hero-section {
-            text-align: center;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            padding: 80px 20px;
-            background-color: #fcf8f8; /* Un fondo rosa blanquecino súper sutil */
-            color: #4a4a4a;
-        }
-        .brand-title {
-            font-size: 3.5rem;
-            font-weight: 300;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-        .brand-title span.pink {
-            color: #fcd7d7; /* El tono rosa suave de tu logo */
-            font-weight: bold;
-        }
-        .brand-title span.blue {
-            color: #9bbcd1; /* El azul/gris de la gota */
-        }
-        .brand-subtitle {
-            font-size: 1.2rem;
-            color: #7a8a99;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 30px;
-        }
-        .intro-text {
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #666;
-        }
-        .badge-gota {
-            font-size: 2.5rem;
-            color: #9bbcd1;
-            margin-bottom: 20px;
-        }
-    </style>
+    /* Estilos generales elegantes */
+    body {
+        background-color: #fcfbfa; /* Fondo general color crema muy suave, no blanco puro */
+        color: #333333;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    .hero-section { 
+        text-align: center; 
+        padding: 60px 20px 40px 20px; 
+        background-color: #fcfbfa;
+    }
+    .badge-gota {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        opacity: 0.7;
+    }
+    .brand-title { 
+        font-size: 3em; 
+        font-weight: 300; /* Letra más fina y estilizada */
+        letter-spacing: 4px;
+        margin-bottom: 5px; 
+        color: #222222;
+        text-transform: uppercase;
+    }
+    /* Colores suaves para las iniciales */
+    .brand-title .pink { color: #d4a3a9; font-weight: 400; }
+    .brand-title .blue { color: #9bb7c4; font-weight: 400; }
+    
+    .brand-subtitle { 
+        font-size: 1em; 
+        color: #8e8e8e; 
+        letter-spacing: 5px; 
+        text-transform: uppercase; 
+        margin-bottom: 25px; 
+    }
+    .intro-text { 
+        max-width: 650px; 
+        margin: 0 auto; 
+        color: #666666; 
+        line-height: 1.8; 
+        font-size: 1.05em;
+        font-weight: 300;
+    }
 
+    /* Tarjetas de Joyas Estilo Boutique */
+    .joya-card {
+        flex: 0 1 320px; 
+        border: 1px solid #f0edf0; 
+        padding: 0; /* Quitamos padding para que la imagen se integre mejor */
+        border-radius: 4px; /* Bordes ligeramente suavizados, más premium */
+        text-align: center; 
+        background-color: #ffffff;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.02); /* Sombra casi invisible */
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .joya-card:hover {
+        transform: translateY(-5px); /* Efecto sutil al pasar el ratón */
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+    .joya-img {
+        width: 100%; 
+        height: 280px; 
+        object-fit: cover;
+    }
+    .joya-info {
+        padding: 20px;
+    }
+    .joya-title {
+        margin-bottom: 8px; 
+        font-weight: 400; 
+        font-size: 1.15em; 
+        color: #333333;
+        letter-spacing: 0.5px;
+    }
+    .joya-precio {
+        color: #7e685a; /* Tono marrón/taupe suave muy elegante para el precio */
+        font-size: 1.2em; 
+        font-weight: 400; 
+        margin-bottom: 20px;
+    }
+    .btn-detalles {
+        display: block; 
+        width: 100%;
+        background-color: #4a4a4a; 
+        color: #ffffff; 
+        padding: 12px; 
+        text-decoration: none; 
+        border-radius: 2px; 
+        font-size: 0.85em; 
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: background-color 0.2s;
+    }
+    .btn-detalles:hover {
+        background-color: #2b2b2b;
+    }
+</style>
+
+<div class="container" style="max-width: 1200px; margin: 0 auto; padding-bottom: 60px;">
     <div class="hero-section">
-        <div class="badge-gota">💧</div>
+        <div class="badge-gota">✨</div>
         <h1 class="brand-title">Di<span class="pink">ME</span><span class="blue">TU</span></h1>
         <div class="brand-subtitle">Joyas Maternales</div>
         
@@ -55,4 +112,26 @@
             Especialistas en joyas biológicas únicas y artesanales hechas con todo el amor que tu historia merece.
         </p>
     </div>
+
+    <!-- Rejilla de productos limpia -->
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; margin-top: 20px; padding: 0 20px;">
+        {% for joya in joyas %}
+            <div class="joya-card">
+                <!-- Imagen limpia sin bordes raros -->
+                <img src="{{ asset('images/joyas/' ~ joya.imagen) }}" alt="{{ joya.nombre }}" class="joya-img">
+                
+                <div class="joya-info">
+                    <h5 class="joya-title">{{ joya.nombre }}</h5>
+                    <p class="joya-precio">{{ joya.precio }} €</p>
+                    <a href="#" class="btn-detalles">Ver detalles</a>
+                </div>
+            </div>
+        {% else %}
+            <div style="text-align: center; margin-top: 20px; width: 100%;">
+                <p style="color: #999; font-style: italic; font-weight: 300;">Aún no hay joyas disponibles en la colección.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
+
