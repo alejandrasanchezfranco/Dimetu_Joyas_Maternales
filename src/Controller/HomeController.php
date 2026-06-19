@@ -21,4 +21,21 @@ final class HomeController extends AbstractController
             'joyas' => $joyas,
         ]);
     }
+        #[Route('/producto/{id}', name: 'app_producto_detalle')]
+    public function detalle(int $id, \App\Repository\ProductoRepository $productoRepository): Response
+    {
+        // Buscamos el producto en la base de datos usando su ID
+        $joya = $productoRepository->find($id);
+
+        // Si no existe, puedes lanzar un error 404
+        if (!$joya) {
+            throw $this->createNotFoundException('La joya no existe');
+        }
+
+        // Renderizamos la vista de detalle (debes crear este archivo .twig más adelante)
+        return $this->render('home/detalle.html.twig', [
+            'joya' => $joya,
+        ]);
+    }
+
 }
