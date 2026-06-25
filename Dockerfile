@@ -17,6 +17,9 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.
 
 WORKDIR /var/www/html
 
+ENV APP_ENV=prod
+
+
 # Forzamos una instalación limpia saltándonos los scripts que bloquean la subida
 RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs --no-scripts
 
