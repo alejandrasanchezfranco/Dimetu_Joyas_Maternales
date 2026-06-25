@@ -23,6 +23,9 @@ ENV APP_ENV=prod
 # Forzamos una instalación limpia saltándonos los scripts que bloquean la subida
 RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs --no-scripts
 
+RUN mkdir -p var/cache var/log
+RUN chmod -R 777 var/cache var/log
+
 RUN chown -R www-data:www-data /var/www/html
 
 EXPOSE 80
