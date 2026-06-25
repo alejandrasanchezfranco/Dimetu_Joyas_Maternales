@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip \
     libzip-dev \
-    && docker-php-ext-install zip \
+    && docker-php-ext-install zip pdo_mysql \
     && a2enmod rewrite
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
