@@ -19,6 +19,7 @@ WORKDIR /var/www/html
 
 ENV APP_ENV=prod
 
+ENV DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
 
 # Forzamos una instalación limpia saltándonos los scripts que bloquean la subida
 RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs --no-scripts
