@@ -21,7 +21,8 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.
 
 # 4. Instalar dependencias de Symfony
 WORKDIR /var/www/html
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
+
 
 # 5. Dar permisos a las carpetas de Symfony
 RUN chown -R www-data:www-data /var/www/html/var /var/www/html/public
