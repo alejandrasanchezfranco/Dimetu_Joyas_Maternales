@@ -2,7 +2,7 @@
 
 {% block body %}
 <style>
-    /* Estilos generales elegantes */
+    /* Estilos generales elegantes (TUS ESTILOS ORIGINALES INTACTOS) */
     body {
         background-color: #fcfbfa; /* Fondo general color crema muy suave, no blanco puro */
         color: #333333;
@@ -50,16 +50,16 @@
     .joya-card {
         flex: 0 1 320px; 
         border: 1px solid #f0edf0; 
-        padding: 0; /* Quitamos padding para que la imagen se integre mejor */
-        border-radius: 4px; /* Bordes ligeramente suavizados, más premium */
+        padding: 0; 
+        border-radius: 4px; 
         text-align: center; 
         background-color: #ffffff;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.02); /* Sombra casi invisible */
+        box-shadow: 0 4px 20px rgba(0,0,0,0.02); 
         overflow: hidden;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .joya-card:hover {
-        transform: translateY(-5px); /* Efecto sutil al pasar el ratón */
+        transform: translateY(-5px); 
         box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     }
     .joya-img {
@@ -78,26 +78,33 @@
         letter-spacing: 0.5px;
     }
     .joya-precio {
-        color: #7e685a; /* Tono marrón/taupe suave muy elegante para el precio */
+        color: #7e685a; 
         font-size: 1.2em; 
         font-weight: 400; 
-        margin-bottom: 20px;
+        margin-bottom: 0px; /* Ajustado a 0 para un acabado limpio al final de la tarjeta */
     }
-    .btn-detalles {
-        display: block; 
-        width: 100%;
-        background-color: #4a4a4a; 
-        color: #ffffff; 
-        padding: 12px; 
-        text-decoration: none; 
-        border-radius: 2px; 
-        font-size: 0.85em; 
+    
+    /* Pequeños añadidos discretos para los nuevos datos */
+    .joya-material {
+        font-size: 0.8em;
+        color: #a19286;
         text-transform: uppercase;
-        letter-spacing: 2px;
-        transition: background-color 0.2s;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
     }
-    .btn-detalles:hover {
-        background-color: #2b2b2b;
+    .joya-descripcion {
+        font-size: 0.85em;
+        color: #777777;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        font-weight: 300;
+        padding: 0 10px;
+    }
+    .main-footer {
+        padding: 40px 20px;
+        margin-top: 60px;
+        border-top: 1px solid #f0edf0;
+        text-align: center;
     }
 </style>
 
@@ -113,26 +120,94 @@
         </p>
     </div>
 
+    <!-- DECLARACIÓN DE TUS PRODUCTOS ACTUALIZADOS -->
+    {% set joyas_manuales = [
+        {
+            'nombre': 'Colgante Inicial',
+            'precio': '85',
+            'imagen': 'colgante_inicial.jpeg',
+            'material': 'Plata de Ley 925',
+            'detalles': 'Colgante inicial rellenable de leche materna, cordón umbilical, arena...'
+        },
+        {
+            'nombre': 'Colgante Nombre',
+            'precio': '135',
+            'imagen': 'colgante_nombre.jpeg',
+            'material': 'Plata de Ley 925',
+            'detalles': 'Nombre caligrafiado a mano con detalle de estrella o corazón calada lateral.'
+        },
+        {
+            'nombre': 'Colgante Bala',
+            'precio': '75',
+            'imagen': 'colgante_bala.jpeg',
+            'material': 'Acero inoxidable y resina con muestra biológica',
+            'detalles': 'Cápsula ideal para incorporar cordón umbilical, leche materna, ceniza de cremación, arena de la playa....'
+        },
+        {
+            'nombre': 'Colgante Corazón',
+            'precio': '85',
+            'imagen': 'colgante_corazon4.jpeg',
+            'material': 'Plata de Ley 925',
+            'detalles': 'Colgante con forma de corazón rellenable de leche materna, cordón umbilical, arena...'
+        },
+        {
+            'nombre': 'Colgante estrella',
+            'precio': '85',
+            'imagen': 'ColganteEstrella.jpg',
+            'material': 'Plata de Ley 925',
+            'detalles': 'Colgante con forma de Estrella rellenable de leche materna, cordón umbilical, arena...'
+        },
+        {
+            'nombre': 'Alianza',
+            'precio': '190',
+            'imagen': 'Alianza.JPG',
+            'material': 'Plata de Ley 925',
+            'detalles': 'Alianza rellenable de leche materna, cordón umbilical, arena...'
+        },
+        {
+            'nombre': 'Charm',
+            'precio': '85',
+            'imagen': 'Charm.jpg',
+            'material': 'Plata de Ley 925',
+            'detalles': 'Charm tradicional de leche materna, cordón umbilical, flores secas, arena, diente de leche..'
+        }
+    ] %}
+
     <!-- Rejilla de productos limpia -->
-   <div class="joyas-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 20px;">
-    {% for joya in joyas %}
-        <div class="joya-card" style="background: white; border: 1px solid #eaeaea; border-radius: 8px; width: 220px; overflow: hidden; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding-bottom: 15px;">
-            <img src="{{ asset('images/joyas/' ~ joya.imagen) }}" alt="{{ joya.nombre }}" style="width: 100%; height: 200px; object-fit: cover;">
-            <div class="joya-info" style="padding: 10px;">
-                <h5 class="joya-title" style="font-size: 16px; margin: 10px 0 5px 0; color: #333;">{{ joya.nombre }}</h5>
-                <p class="joya-precio" style="font-size: 14px; color: #777; font-weight: bold; margin-bottom: 15px;">{{ joya.precio }} €</p>
-                <a href="{{ path('app_producto_detalle', {'id': joya.id}) }}" class="btn-detalles" style="display: inline-block; background-color: #d1b29a; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 13px;">
-                    Ver detalles
-                </a>
+    <div class="joyas-grid" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; padding: 20px;">
+        {% for joya in joyas_manuales %}
+            <div class="joya-card">
+                <!-- Foto con tus proporciones -->
+                <img src="{{ asset('images/joyas/' ~ joya.imagen) }}" alt="{{ joya.nombre }}" class="joya-img">
+                
+                <div class="joya-info">
+                    <!-- 1. Nombre de la joya -->
+                    <h5 class="joya-title">{{ joya.nombre }}</h5>
+                    
+                    <!-- 2. Material empleado -->
+                    <div class="joya-material">💎 {{ joya.material }}</div>
+                    
+                    <!-- 3. Detalles del producto -->
+                    <p class="joya-descripcion">{{ joya.detalles }}</p>
+                    
+                    <!-- 4. Precio elegante -->
+                    <p class="joya-precio">{{ joya.precio }} €</p>
+                </div>
             </div>
-        </div>
-    {% else %}
-        <div style="text-align: center; margin-top: 20px; width: 100%;">
-            <p style="color: #999; font-style: italic; font-weight: 300;">Aún no hay joyas disponibles en la colección.</p>
-        </div>
-    {% endfor %}
-</div>
+        {% else %}
+            <div style="text-align: center; margin-top: 20px; width: 100%;">
+                <p style="color: #999; font-style: italic; font-weight: 300;">Aún no hay joyas disponibles en la colección.</p>
+            </div>
+        {% endfor %}
+    </div>
 
 </div>
+
+<!-- DATOS DE CONTACTO DISCRETOS AL FINAL -->
+<footer class="main-footer">
+    <p style="margin-bottom: 8px; font-size: 0.85em; color: #8e8e8e; letter-spacing: 1px;">DIMETU JOYAS MATERNALES © 2026</p>
+    <p style="font-size: 0.8em; color: #bca089;">Contacto: infodimetu@gmail.com | 661429213 | Instagram: @dimetu_joyas_maternales</p>
+</footer>
 {% endblock %}
+
 

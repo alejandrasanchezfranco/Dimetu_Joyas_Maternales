@@ -1,3 +1,35 @@
 body {
     background-color: skyblue;
 }
+/* --- DISEÑO EXCLUSIVO PARA DIMETU --- */
+
+/* 1. Hacemos que las tarjetas de las joyas sean más finas, sin bordes negros y con una sombra suave */
+.card {
+    border: none !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 12px !important;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+/* 2. Forzamos a que TODAS las fotos midan exactamente igual para que el catálogo quede alineado */
+.card img {
+    height: 280px !important;
+    object-fit: cover; /* Esto hace que la foto se adapte sin deformarse ni estirarse */
+}
+
+/* 3. Arreglamos tu botón "VER DETALLES" para que las letras blancas se lean perfectamente */
+.card .btn {
+    background-color: #bfa38a !important; /* Tu color arena, un pelín más intenso para que contraste */
+    color: #ffffff !important; /* Letras blancas */
+    font-weight: 600; /* Letras un poco más gruesas */
+    letter-spacing: 1px; /* Espaciado elegante entre letras */
+    border: none;
+    padding: 12px;
+    border-radius: 0px 0px 8px 8px; /* Redondeado solo abajo */
+}
+
+/* 4. Efecto mágico: cuando pasas el ratón por encima del botón, se oscurece un poco */
+.card .btn:hover {
+    background-color: #a68970 !important;
+}
