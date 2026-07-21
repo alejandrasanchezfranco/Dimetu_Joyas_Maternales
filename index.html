@@ -1,13 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome!</title>
-    <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://w3.org viewBox=%220 0 128 128%22&gt;&lt;text y=%221.2em%22 font-size=%2296%22&gt;%E2%9A%AB%EF%B8%8F&lt;/text&gt;&lt;text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22&gt;sf&lt;/text&gt;&lt;/svg&gt;">
-    
+    <meta charset="UTF-8">
+    <title>DiMETU - Catálogo de Joyas Maternales</title>
     <style>
-        /* Estilos boutique elegantes originales */
         body {
             background-color: #fcfbfa; 
             color: #333333;
@@ -51,14 +47,14 @@
             font-size: 1.05em;
             font-weight: 300;
         }
-
-        /* Rejilla de productos flexible */
         .joyas-grid {
             display: flex; 
             flex-wrap: wrap; 
             gap: 30px; 
             justify-content: center; 
             padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .joya-card {
             flex: 0 1 320px; 
@@ -121,9 +117,7 @@
 </head>
 <body>
 
-<div class="container" style="max-width: 1200px; margin: 0 auto; padding-bottom: 60px;">
-    
-    <!-- ENCABEZADO -->
+<div class="container" style="padding-bottom: 60px;">
     <div class="hero-section">
         <div class="badge-gota">✨</div>
         <h1 class="brand-title">Di<span class="pink">ME</span><span class="blue">TU</span></h1>
@@ -134,118 +128,85 @@
         </p>
     </div>
     
-    <!-- REJILLA CON TODOS LOS PRODUCTOS DE TU CAPTURA -->
     <div class="joyas-grid">
-        
-        <!-- PRODUCTO 1: Alianza -->
+        <!-- JOYA 1: Alianza -->
         <div class="joya-card">
             <img src="public/images/joyas/Alianza.JPG" alt="Alianza" class="joya-img">
             <div class="joya-info">
                 <h5 class="joya-title">Alianza</h5>
                 <div class="joya-material">💎 Plata de Ley 925</div>
-                <p class="joya-descripcion">Alianza rellenable de leche materna, cordón umbilical, arena...</p>
-                <p class="joya-precio">190 €</p>
+                <p class="joya-descripcion">Alianza artesanal rellenable con tu propia leche materna, cordón umbilical, ceniza de cremación...</p>
+                <p class="joya-precio">210 €</p>
             </div>
         </div>
 
-        <!-- PRODUCTO 2: Charm -->
-        <div class="joya-card">
-            <img src="public/images/joyas/Charm.jpg" alt="Charm" class="joya-img">
-            <div class="joya-info">
-                <h5 class="joya-title">Charm</h5>
-                <div class="joya-material">💎 Plata de Ley 925</div>
-                <p class="joya-descripcion">Charm tradicional de leche materna, cordón umbilical, flores secas, arena...</p>
-                <p class="joya-precio">85 €</p>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 3: Colgante Bala -->
-        <div class="joya-card">
-            <img src="public/images/joyas/colgante_bala.jpeg" alt="Colgante Bala" class="joya-img">
-            <div class="joya-info">
-                <h5 class="joya-title">Colgante Bala</h5>
-                <div class="joya-material">💎 Acero Inoxidable y Resina</div>
-                <p class="joya-descripcion">Cápsula ideal para incorporar cordón umbilical, leche materna, cenizas...</p>
-                <p class="joya-precio">75 €</p>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 4: Colgante Corazón Modelo 1 -->
-        <div class="joya-card">
-            <img src="public/images/joyas/colgante_corazon1.jpg" alt="Colgante Corazón Clásico" class="joya-img">
-            <div class="joya-info">
-                <h5 class="joya-title">Colgante Corazón Clásico</h5>
-                <div class="joya-material">💎 Plata de Ley 925</div>
-                <p class="joya-descripcion">Diseño romántico moldeado con resina biológica de alta resistencia.</p>
-                <p class="joya-precio">95 €</p>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 5: Colgante Corazón Modelo 2 -->
-        <div class="joya-card">
-            <img src="public/images/joyas/colgante_corazon2.jpg" alt="Colgante Corazón Silueta" class="joya-img">
-            <div class="joya-info">
-                <h5 class="joya-title">Colgante Corazón Silueta</h5>
-                <div class="joya-material">💎 Plata de Ley 925</div>
-                <p class="joya-descripcion">Silueta estilizada con fondo personalizado para recuerdos maternales.</p>
-                <p class="joya-precio">95 €</p>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 6: Colgante Corazón Modelo 3 -->
-        <div class="joya-card">
-            <img src="public/images/joyas/colgante_corazon3.jpg" alt="Colgante Corazón Minimal" class="joya-img">
-            <div class="joya-info">
-                <h5 class="joya-title">Colgante Corazón Minimal</h5>
-                <div class="joya-material">💎 Plata de Ley 925</div>
-                <p class="joya-descripcion">Detalle minimalista y discreto ideal para lucir diariamente.</p>
-                <p class="joya-precio">90 €</p>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 7: Colgante Corazón Modelo 4 -->
-        <div class="joya-card">
-            <img src="public/images/joyas/colgante_corazon4.jpg" alt="Colgante Corazón Premium" class="joya-img">
-            <div class="joya-info">
-                <h5 class="joya-title">Colgante Corazón Premium</h5>
-                <div class="joya-material">💎 Plata de Ley 925</div>
-                <p class="joya-descripcion">Acabado exclusivo pulido a mano con incrustaciones personalizadas.</p>
-                <p class="joya-precio">105 €</p>
-            </div>
-        </div>
-
-        <!-- PRODUCTO 8: Colgante Inicial -->
+        <!-- JOYA 2: Colgante Inicial -->
         <div class="joya-card">
             <img src="public/images/joyas/colgante_inicial.jpeg" alt="Colgante Inicial" class="joya-img">
             <div class="joya-info">
                 <h5 class="joya-title">Colgante Inicial</h5>
                 <div class="joya-material">💎 Plata de Ley 925</div>
-                <p class="joya-descripcion">Colgante inicial rellenable de leche materna, cordón umbilical, arena...</p>
+                <p class="joya-descripcion">Colgante inicial de recuerdo biológico adaptado totalmente a tu historia.</p>
                 <p class="joya-precio">85 €</p>
             </div>
         </div>
 
-        <!-- PRODUCTO 9: Colgante Nombre -->
+        <!-- JOYA 3: Colgante Nombre -->
         <div class="joya-card">
             <img src="public/images/joyas/colgante_nombre.jpeg" alt="Colgante Nombre" class="joya-img">
             <div class="joya-info">
                 <h5 class="joya-title">Colgante Nombre</h5>
                 <div class="joya-material">💎 Plata de Ley 925</div>
-                <p class="joya-descripcion">Nombre caligrafiado a mano con detalle de estrella o corazón lateral.</p>
+                <p class="joya-descripcion">Nombre caligrafiado a mano con detalle lateral de estrella o corazón calado relleno de muestra biológica.</p>
                 <p class="joya-precio">135 €</p>
             </div>
         </div>
 
-        <!-- PRODUCTO 10: Colgante Estrella -->
+        <!-- JOYA 4: Colgante Bala -->
         <div class="joya-card">
-            <img src="public/images/joyas/ColganteEstrella.jpg" alt="Colgante Estrella" class="joya-img">
+            <img src="public/images/joyas/colgante_bala.jpeg" alt="Colgante Bala" class="joya-img">
             <div class="joya-info">
-                <h5 class="joya-title">Colgante Estrella</h5>
-                <div class="joya-material">💎 Plata de Ley 925</div>
-                <p class="joya-descripcion">Precioso diseño en forma de estrella para encapsular tus mejores momentos.</p>
-                <p class="joya-precio">95 €</p>
+                <h5 class="joya-title">Colgante Cápsula Bala</h5>
+                <div class="joya-material">💎 Acero Inoxidable</div>
+                <p class="joya-descripcion">Cápsula elegante ideal para incorporar leche materna, cenizas, cordón umbilical, pelito...</p>
+                <p class="joya-precio">75 €</p>
             </div>
         </div>
 
+        <!-- JOYA 5: Colgante Corazón 3 -->
+        <div class="joya-card">
+            <img src="public/images/joyas/colgante_corazon3.jpeg" alt="Colgante Corazón 3" class="joya-img">
+            <div class="joya-info">
+                <h5 class="joya-title">Colgante Corazón</h5>
+                <div class="joya-material">💎 Plata de Ley y Resina</div>
+                <p class="joya-descripcion">Precioso corazón moldeado a mano para encapsular tus recuerdos más valiosos.</p>
+                <p class="joya-precio">85 €</p>
+            </div>
+        </div>
+
+        <!-- JOYA 6: Colgante Estrella -->
+        <div class="joya-card">
+            <img src="public/images/joyas/ColganteEstrella.jpg" alt="Colgante Estrella" class="joya-img">
+            <div class="joya-info">
+                <h5 class="joya-title">Colgante Estrella Fugaz</h5>
+                <div class="joya-material">💎 Oro de Primera Ley / Plata</div>
+                <p class="joya-descripcion">Diseño celestial brillante personalizado con tu propia historia biológica.</p>
+                <p class="joya-precio">85 €</p>
+            </div>
+        </div>
     </div>
+
+    <!-- PIE DE PÁGINA CON EL CÓDIGO QR AUTOMÁTICO GRATUITO -->
+    <footer class="main-footer">
+        <div style="margin-bottom: 20px;">
+            <p style="color: #8e8e8e; font-size: 0.9em; letter-spacing: 2px; text-transform: uppercase;">Escanea para compartir catálogo</p>
+            <!-- Este generador oficial dibuja tu QR gratis apuntando a tu dirección de GitHub -->
+            <img src="https://qrserver.com" alt="Código QR Catálogo DiMETU" style="border: 4px solid #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-radius: 4px; margin-top: 10px;">
+        </div>
+        <p style="font-size: 0.85em; color: #a19286;">&copy; 2026 DiMETU Joyas Maternales. Todos los derechos reservados.</p>
+    </footer>
+</div>
+
+</body>
+</html>
 
