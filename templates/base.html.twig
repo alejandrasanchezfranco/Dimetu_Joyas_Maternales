@@ -1,24 +1,216 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>DiMETU - Catálogo de Joyas Maternales</title>
+    <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://w3.org viewBox=%220 0 128 128%22&gt;&lt;text y=%221.2em%22 font-size=%2296%22&gt;%E2%9A%AB%EF%B8%8F&lt;/text&gt;&lt;text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22&gt;sf&lt;/text&gt;&lt;/svg&gt;">
+    
+    <style>
+        /* Estilos elegantes para tu catálogo */
+        body {
+            background-color: #fcfbfa; 
+            color: #333333;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .hero-section { 
+            text-align: center; 
+            padding: 60px 20px 40px 20px; 
+            background-color: #fcfbfa;
+        }
+        .badge-gota {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            opacity: 0.7;
+        }
+        .brand-title { 
+            font-size: 3em; 
+            font-weight: 300; 
+            letter-spacing: 4px;
+            margin-bottom: 5px; 
+            color: #222222;
+            text-transform: uppercase;
+        }
+        .brand-title .pink { color: #d4a3a9; font-weight: 400; }
+        .brand-title .blue { color: #9bb7c4; font-weight: 400; }
+        
+        .brand-subtitle { 
+            font-size: 1em; 
+            color: #8e8e8e; 
+            letter-spacing: 5px; 
+            text-transform: uppercase; 
+            margin-bottom: 25px; 
+        }
+        .intro-text { 
+            max-width: 650px; 
+            margin: 0 auto; 
+            color: #666666; 
+            line-height: 1.8; 
+            font-size: 1.05em;
+            font-weight: 300;
+        }
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
+        /* Rejilla de productos */
+        .joyas-grid {
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 30px; 
+            justify-content: center; 
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .joya-card {
+            flex: 0 1 320px; 
+            border: 1px solid #f0edf0; 
+            padding: 0; 
+            border-radius: 4px; 
+            text-align: center; 
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02); 
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .joya-card:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .joya-img {
+            width: 100%; 
+            height: 280px; 
+            object-fit: cover;
+        }
+        .joya-info {
+            padding: 20px;
+        }
+        .joya-title {
+            margin-bottom: 8px; 
+            font-weight: 400; 
+            font-size: 1.15em; 
+            color: #333333;
+            letter-spacing: 0.5px;
+        }
+        .joya-precio {
+            color: #7e685a; 
+            font-size: 1.2em; 
+            font-weight: 400; 
+            margin-bottom: 0px; 
+        }
+        .joya-material {
+            font-size: 0.8em;
+            color: #a19286;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .joya-descripcion {
+            font-size: 0.85em;
+            color: #777777;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-weight: 300;
+            padding: 0 10px;
+        }
+        .main-footer {
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #f0edf0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
 
-        {% set frankenphpHotReload = app.request.server.get('FRANKENPHP_HOT_RELOAD') %}
-        {% if frankenphpHotReload %}
-        <meta name="frankenphp-hot-reload:url" content="{{ frankenphpHotReload }}">
-        <script src="https://cdn.jsdelivr.net/npm/idiomorph"></script>
-        <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
-        {% endif %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<div class="container" style="padding-bottom: 60px;">
+    <div class="hero-section">
+        <div class="badge-gota">✨</div>
+        <h1 class="brand-title">Di<span class="pink">ME</span><span class="blue">TU</span></h1>
+        <div class="brand-subtitle">Joyas Maternales</div>
+        <p class="intro-text">
+            Transformamos tus recuerdos más puros en piezas eternas. 
+            Especialistas en joyas biológicas únicas y artesanales hechas con todo el amor que tu historia merece.
+        </p>
+    </div>
+    
+    <div class="joyas-grid">
+        <!-- JOYA 1: Alianza -->
+        <div class="joya-card">
+            <img src="images/joyas/Alianza.JPG" alt="Alianza" class="joya-img">
+            <div class="joya-info">
+                <h5 class="joya-title">Alianza</h5>
+                <div class="joya-material">💎 Plata de Ley 925</div>
+                <p class="joya-descripcion">Alianza artesanal rellenable con tu propia leche materna ,cordón umbilical,ceniza de cremación...</p>
+                <p class="joya-precio">210 €</p>
+            </div>
+        </div>
+
+        <!-- JOYA 2: Colgante Inicial -->
+        <div class="joya-card">
+            <img src="images/joyas/colgante_inicial.jpeg" alt="Colgante Inicial" class="joya-img">
+            <div class="joya-info">
+                <h5 class="joya-title">Colgante Inicial</h5>
+                <div class="joya-material">💎 Plata de Ley 925</div>
+                <p class="joya-descripcion">Colgante inicial de recuerdo biológico adaptado totalmente a tu historia.</p>
+                <p class="joya-precio">85 €</p>
+            </div>
+        </div>
+
+        <!-- JOYA 3: Colgante Nombre -->
+        <div class="joya-card">
+            <img src="images/joyas/colgante_nombre.jpeg" alt="Colgante Nombre" class="joya-img">
+            <div class="joya-info">
+                <h5 class="joya-title">Colgante Nombre</h5>
+                <div class="joya-material">💎 Plata de Ley 925</div>
+                <p class="joya-descripcion">Nombre caligrafiado a mano con detalle lateral de estrella o corazón calado relleno de muestra biológica.</p>
+                <p class="joya-precio">135 €</p>
+            </div>
+        </div>
+
+        <!-- JOYA 4: Colgante Bala -->
+        <div class="joya-card">
+            <img src="images/joyas/colgante_bala.jpeg" alt="Colgante Bala" class="joya-img">
+            <div class="joya-info">
+                <h5 class="joya-title">Colgante Cápsula Bala</h5>
+                <div class="joya-material">💎 Acero Inoxidable</div>
+                <p class="joya-descripcion">Cápsula elegante ideal para incorporar leche materna, cenizas, cordón umbilical, pelito...</p>
+                <p class="joya-precio">75 €</p>
+            </div>
+        </div>
+
+        <!-- JOYA 5: Colgante Corazón 3 -->
+        <div class="joya-card">
+            <img src="images/joyas/colgante_corazon3.jpeg" alt="Colgante Corazón 3" class="joya-img">
+            <div class="joya-info">
+                <h5 class="joya-title">Colgante Corazón </h5>
+                <div class="joya-material">💎 Plata de Ley y Resina</div>
+                <p class="joya-descripcion">Precioso corazón moldeado a mano para encapsular tus recuerdos más valiosos.</p>
+                <p class="joya-precio">85 €</p>
+            </div>
+        </div>
+
+        <!-- JOYA 6: Colgante Estrella -->
+        <div class="joya-card">
+            <img src="images/joyas/ColganteEstrella.jpg" alt="Colgante Estrella" class="joya-img">
+            <div class="joya-info">
+                <h5 class="joya-title">Colgante Estrella Fugaz</h5>
+                <div class="joya-material">💎 Oro de Primera Ley / Plata</div>
+                <p class="joya-descripcion">Diseño celestial brillante personalizado con tu propia historia biológica.</p>
+                <p class="joya-precio">85 €</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PIE DE PÁGINA CON EL CÓDIGO QR AUTOMÁTICO GRATUITO -->
+    <footer class="main-footer">
+        <div style="margin-bottom: 20px;">
+            <p style="color: #8e8e8e; font-size: 0.9em; letter-spacing: 2px; text-transform: uppercase;">Escanea para compartir catálogo</p>
+            <!-- Este enlace genera el QR apuntando directo a tu dirección gratuita de GitHub Pages -->
+            <img src="https://qrserver.com" alt="Código QR Catálogo DiMETU" style="border: 4px solid #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-radius: 4px; margin-top: 10px;">
+        </div>
+        <p style="font-size: 0.85em; color: #a19286;">&copy; 2026 DiMETU Joyas Maternales. Todos los derechos reservados.</p>
+    </footer>
+</div>
+
+</body>
 </html>
